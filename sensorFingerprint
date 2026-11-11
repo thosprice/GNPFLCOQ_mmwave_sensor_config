@@ -1,0 +1,24 @@
+ "TS0601_GNPFLCOQ_RADAR": {
+	  "description": "Tuya 10G mmWave 4-in-1 Sensor GNPFLCOQ",
+	  "device": { "powerSource": "battery", "ignoreIAS": true },
+	  "capabilities": { "MotionSensor": true, "IlluminanceMeasurement": true, "TemperatureMeasurement": true, "RelativeHumidityMeasurement": true, "Battery": true },
+	  "preferences": { "pirSensitivity": "9", "fadingTime": "12", "samplingInterval": "101", "temperatureCalibration": "102", "humidityCalibration": "103" },
+	  "commands": { "resetStats": "" },
+	  "fingerprints": [
+		{ "profileId": "0104", "endpointId": "01", "inClusters": "0000,0001,0004,0005,0400,0402,0405,0406,ED00,EF00", "outClusters": "000A,0019", "model": "TS0601", "manufacturer": "_TZE284_gnpflcoq", "deviceJoinName": "Tuya 10G mmWave 4-in-1 Sensor" }
+	  ],
+	  "tuyaDPs": [
+		{ "dp": 1,   "name": "motion", "type": "enum", "rw": "ro", "min": 0, "max": 1, "map": { "0": "active", "1": "inactive" }, "description": "Presence state (0=pir, 1=none)" },
+		{ "dp": 4,   "name": "battery", "type": "number", "rw": "ro", "min": 0, "max": 100, "scale": 1, "unit": "%", "description": "Battery percentage" },
+		{ "dp": 7,   "name": "temperature", "type": "decimal", "rw": "ro", "scale": 10, "unit": "°C", "description": "Temperature" },
+		{ "dp": 8,   "name": "humidity", "type": "number", "rw": "ro", "scale": 1, "unit": "%", "description": "Humidity" },
+		{ "dp": 9,   "name": "pirSensitivity", "type": "enum", "rw": "rw", "min": 0, "max": 2, "map": { "0": "low", "1": "middle", "2": "high" }, "title": "<b>PIR sensitivity</b>", "description": "<i>PIR sensitivity</i>" },
+		{ "dp": 11,  "name": "illuminance", "type": "number", "rw": "ro", "scale": 1, "unit": "lx", "description": "Illuminance" },
+		{ "dp": 12,  "name": "fadingTime", "type": "number", "rw": "rw", "min": 10, "max": 180, "scale": 1, "unit": "seconds", "title": "<b>PIR hold time</b>", "description": "<i>Time motion stays active after the last detection</i>" },
+		{ "dp": 101, "name": "samplingInterval", "type": "number", "rw": "rw", "min": 1, "max": 60, "scale": 1, "unit": "minutes", "title": "<b>Sensor report interval</b>", "description": "<i>Temperature/humidity/lux reporting interval</i>" },
+		{ "dp": 102, "name": "temperatureCalibration", "type": "decimal", "rw": "rw", "min": -10.0, "max": 10.0, "defVal": 0.0, "scale": 10, "unit": "°C", "title": "<b>Temperature calibration</b>", "description": "<i>Temperature offset</i>" },
+		{ "dp": 103, "name": "humidityCalibration", "type": "number", "rw": "rw", "min": -30, "max": 30, "defVal": 0, "scale": 1, "unit": "%", "title": "<b>Humidity calibration</b>", "description": "<i>Humidity offset</i>" }
+	  ],
+	  "refresh": ["queryAllTuyaDP"],
+	  "configuration": { "battery": true }
+  }
