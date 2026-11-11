@@ -1050,6 +1050,5 @@
     "v.4.1.4 - added HOBEIAN ZG-204ZK 24 GHz Human Presence Detector (TS0601 _TZE200_ka8l86iu)",
     "v.4.1.5 - split GKFBDVYX into dedicated profile; added TS0601 _TZE200_gkfbdvyx and Z2M-aligned distance ranges/steps",
     "v.4.1.6 - added SONOFF SNZB-06P24 24GHz Presence Sensor",
-	"v.4.1.6.1 - added TS0601_GNPFLCOQ_RADAR"
   ]
 }
